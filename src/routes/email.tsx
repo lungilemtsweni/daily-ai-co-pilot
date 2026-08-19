@@ -34,7 +34,7 @@ export const Route = createFileRoute("/email")({
         { name: "length", label: "Length", type: "select", options: ["Short", "Medium", "Detailed"] },
       ]}
       buildPrompt={(v) =>
-        `Write a workplace email.\nRecipient: ${v.recipient}\nPurpose: ${v.purpose}\nTone: ${v.tone}\nLength: ${v.length}\nKey points:\n${v.points}`
+        `Write a workplace email.\nRecipient: ${v["recipient"]}\nPurpose: ${v["purpose"]}\nTone: ${v["tone"]}\nLength: ${v["length"]}\nKey points:\n${v["points"]}`
       }
     />
   ),

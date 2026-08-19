@@ -33,7 +33,7 @@ export const Route = createFileRoute("/notes")({
         { name: "audience", label: "Summary audience", type: "select", options: ["Whole team", "Leadership", "Clients", "Personal record"] },
       ]}
       buildPrompt={(v) =>
-        `Summarize these meeting notes for: ${v.audience}.\nMeeting: ${v.meeting}\nAttendees: ${v.attendees || "not stated"}\n\nNotes:\n${v.notes}`
+        `Summarize these meeting notes for: ${v["audience"]}.\nMeeting: ${v["meeting"]}\nAttendees: ${v["attendees"] || "not stated"}\n\nNotes:\n${v["notes"]}`
       }
     />
   ),

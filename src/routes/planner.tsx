@@ -33,7 +33,7 @@ export const Route = createFileRoute("/planner")({
         { name: "capacity", label: "Working capacity", type: "select", options: ["Solo, part-time", "Solo, full-time", "Small team (2-4)", "Cross-functional team"] },
       ]}
       buildPrompt={(v) =>
-        `Create a work plan.\nGoal: ${v.goal}\nTime horizon: ${v.horizon}\nCapacity: ${v.capacity}\nContext and constraints:\n${v.context}`
+        `Create a work plan.\nGoal: ${v["goal"]}\nTime horizon: ${v["horizon"]}\nCapacity: ${v["capacity"]}\nContext and constraints:\n${v["context"]}`
       }
     />
   ),

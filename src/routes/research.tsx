@@ -33,7 +33,7 @@ export const Route = createFileRoute("/research")({
         { name: "audience", label: "Audience", type: "select", options: ["Executive", "Team", "Client", "Technical"] },
       ]}
       buildPrompt={(v) =>
-        `Produce a research brief.\nTopic: ${v.topic}\nDepth: ${v.depth}\nAudience: ${v.audience}\nFocus areas:\n${v.focus}`
+        `Produce a research brief.\nTopic: ${v["topic"]}\nDepth: ${v["depth"]}\nAudience: ${v["audience"]}\nFocus areas:\n${v["focus"]}`
       }
     />
   ),

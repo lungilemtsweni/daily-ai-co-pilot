@@ -40,9 +40,11 @@ export function ToolWorkspace({
   submitLabel,
 }: Props) {
   const run = useServerFn(generateOutput);
-  const [values, setValues] = useState<Record<string, string>>(() =>
-    Object.fromEntries(fields.map((f) => [f.name, f.type === "select" ? f.options[0] : ""])),
-  );
+  const [values, setValues] = useState<Record<string, string>>(() => {
+    const init: Record<string, string> = {};
+    for (const f of fields) init[f.name] = f.type === "select" ? (f.options[0] ?? "") : "";
+    return init;
+  });
   const [output, setOutput] = useState("");
   const [editing, setEditing] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -110,7 +112,10 @@ export function ToolWorkspace({
                 />
               )}
               {field.type === "select" && (
-                <Select value={values[field.name]} onValueChange={(v) => set(field.name, v)}>
+                <Select
+                  value={values[field.name] ?? ""}
+                  onValueChange={(v) => set(field.name, v)}
+                >
                   <SelectTrigger id={field.name}>
                     <SelectValue />
                   </SelectTrigger>
